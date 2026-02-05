@@ -33,15 +33,19 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final String _alphabet = "abcdefghijklmnopqrstuvwxyz";
+  String _cipherText = "";
   int _shift = 7;
 
   void _encode(String originalText) {
     Uint8List asciiBytes = ascii.encode(originalText);
-    List<String> encodedText = [];
+    List<String> encodedList = [];
     asciiBytes.forEach((asciiByte) {
-      encodedText.add(String.fromCharCode(asciiByte + _shift));
+      encodedList.add(String.fromCharCode(asciiByte + _shift));
     });
-    print(encodedText); // For testing
+    print(encodedList); // For testing
+    setState(() {
+      _cipherText = encodedList.toString();
+    });
   }
 
   @override
@@ -150,6 +154,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: TextStyle(
                         color: Colors.white,
                       )
+                    ),
+                    Text(
+                      _cipherText
                     ),
                   ],
                 )
