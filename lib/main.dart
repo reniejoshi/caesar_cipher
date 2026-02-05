@@ -86,16 +86,22 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     Row(
                       children: [
-                        ElevatedButton(
+                        TextButton(
                           onPressed: () {},
+                          style: ButtonStyle(
+                            overlayColor: WidgetStateProperty.all(Colors.transparent)
+                          ),
                           child: Text("-")
                         ),
                         Padding(
                           padding: EdgeInsetsGeometry.all(10),
                           child: Text("a -> a"),
                         ),
-                        ElevatedButton(
+                        TextButton(
                           onPressed: () {},
+                          style: ButtonStyle(
+                            overlayColor: WidgetStateProperty.all(Colors.transparent)
+                          ),
                           child: Text("+")
                         )
                       ]
