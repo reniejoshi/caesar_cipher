@@ -1,4 +1,7 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+import 'dart:convert';
 
 void main() {
   runApp(const MyApp());
@@ -32,8 +35,13 @@ class _MyHomePageState extends State<MyHomePage> {
   final String _alphabet = "abcdefghijklmnopqrstuvwxyz";
   int _shift = 7;
 
-  void _encode() {
-
+  void _encode(String originalText) {
+    Uint8List asciiBytes = ascii.encode(originalText);
+    List<String> encodedText = [];
+    asciiBytes.forEach((asciiByte) {
+      encodedText.add(String.fromCharCode(asciiByte + _shift));
+    });
+    print(encodedText); // For testing
   }
 
   @override
@@ -65,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     )
                   ),
                   TextField(
+                    onChanged: _encode,
                     decoration: InputDecoration(
                       hintText: 'Enter original text'
                     ),
