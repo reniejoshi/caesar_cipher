@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(onPressed: () => print('Hello, Flutter Training!'), child: Text('Print!')),
+            Text("Hello world!"),
           ],
         ),
       ),
