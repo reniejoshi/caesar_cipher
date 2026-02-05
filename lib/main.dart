@@ -32,6 +32,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final TextEditingController _originalTextController = TextEditingController();
   final String _alphabet = "abcdefghijklmnopqrstuvwxyz";
   String _cipherText = "";
   int _shift = 7;
@@ -77,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     )
                   ),
                   TextField(
+                    controller: _originalTextController,
                     onChanged: _encode,
                     decoration: InputDecoration(
                       hintText: 'Enter original text'
@@ -109,6 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         TextButton(
                           onPressed: () {
                             _shift -= 1;
+                            _encode(_originalTextController.text);
                           },
                           style: ButtonStyle(
                             overlayColor: WidgetStateProperty.all(Colors.transparent)
@@ -122,6 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         TextButton(
                           onPressed: () {
                             _shift += 1;
+                            _encode(_originalTextController.text);
                           },
                           style: ButtonStyle(
                             overlayColor: WidgetStateProperty.all(Colors.transparent)
