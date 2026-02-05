@@ -29,6 +29,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final String _alphabet = "abcdefghijklmnopqrstuvwxyz";
+  int _shift = 7;
+
+  void _encode() {
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,7 +94,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     Row(
                       children: [
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            _shift -= 1;
+                          },
                           style: ButtonStyle(
                             overlayColor: WidgetStateProperty.all(Colors.transparent)
                           ),
@@ -98,7 +107,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text("a -> a"),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            _shift += 1;
+                          },
                           style: ButtonStyle(
                             overlayColor: WidgetStateProperty.all(Colors.transparent)
                           ),
